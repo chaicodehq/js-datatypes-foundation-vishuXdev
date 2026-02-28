@@ -58,21 +58,56 @@
  *   isTruthy("")                 // => false
  */
 export function getDataType(value) {
-  // Your code here
+  if(value === null){
+    return "null";
+  }
+
+  if(Array.isArray(value)){
+    return "array"
+  }
+
+  return (typeof value).toLowerCase().toString();
 }
 
 export function isValidParcelWeight(weight) {
-  // Your code here
+  if(weight === NaN || weight === 0){
+    return false ;
+  }
+
+  if(typeof weight !== "number"){
+    return false;
+  }
+
+  if(Number.isFinite(weight) == false){
+    return false;
+  }
+
+  if(weight < 0){
+    return false;
+  }
+
+  return true
 }
 
 export function isWholeNumber(value) {
-  // Your code here
+  if(typeof value === "string"){
+    return false;
+  }
+  const isVlaueInteger= Number.isInteger(value);
+  return isVlaueInteger;
 }
 
 export function isNotANumber(value) {
-  // Your code here
+  if(Number.isNaN(value)){
+    return true;
+  }else{
+    return false
+  }
+
 }
 
 export function isTruthy(value) {
-  // Your code here
+  const truthy = Boolean(value);
+
+  return truthy;
 }
